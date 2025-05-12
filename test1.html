@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorize</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+</head>
+<body>
+    <div class="container-menu">
+        <button><i class="fa-solid fa-dice-one"></i></button>
+        <button><i class="fa-solid fa-dice-two"></i></button>
+        <button><i class="fa-solid fa-dice-three"></i></button>
+        <button><i class="fa-solid fa-dice-four"></i></button>
+        <button><i class="fa-solid fa-dice-five"></i></button>
+        <button><i class="fa-solid fa-eye"></i></i></button>
+    </div>
+    <div class="container-main" id="hiraPanel">
+        <div class="title">Hiragana</div>
+        <div class="question">あ</div>
+        <div class="question">い</div>
+        <div class="question">う</div>
+        <div class="question">え</div>
+        <div class="question">お</div>
+        <div class="question">か</div>
+        <div class="question">き</div>
+        <div class="question">く</div>
+        <div class="question">け</div>
+        <div class="question">こ</div>
+        <div class="question">さ</div>
+        <div class="question">し</div>
+        <div class="question">す</div>
+        <div class="question">せ</div>
+        <div class="question">そ</div>
+        <div class="question">た</div>
+        <div class="question">ち</div>
+        <div class="question">つ</div>
+        <div class="question">て</div>
+        <div class="question">と</div>
+    </div>
+
+    <div class="container-main" id="romaPanel">
+        <div class="title">Romaji</div>
+        <button>a</button>
+        <button>i</button>
+        <button>u</button>
+        <button>e</button>
+        <button>o</button>
+        <button>ka</button>
+        <button>ki</button>
+        <button>ku</button>
+        <button>ke</button>
+        <button>ko</button>
+        <button>sa</button>
+        <button>shi</button>
+        <button>su</button>
+        <button>se</button>
+        <button>so</button>
+        <button>ta</button>
+        <button>chi</button>
+        <button>tsu</button>
+        <button>te</button>
+        <button>to</button>
+    </div>
+
+    <script>
+        let charMap = [[
+            "あ", "い", "う", "え", "お",
+            "か", "き", "く", "け", "こ",
+            "さ", "し", "す", "せ", "そ",
+            "た", "ち", "つ", "て", "と",
+            "な", "に", "ぬ", "ね", "の",
+            "は", "ひ", "ふ", "へ", "ほ",
+            "ま", "み", "む", "め", "も",
+            "や", "ゆ", "よ",
+            "ら", "り", "る", "れ", "ろ",
+            "わ", "を", "ん"
+        ], [
+            "a", "i", "u", "e", "o",
+            "ka", "ki", "ku", "ke", "ko",
+            "sa", "shi", "su", "se", "so",
+            "ta", "chi", "tsu", "te", "to",
+            "na", "ni", "nu", "ne", "no",
+            "ha", "hi", "fu", "he", "ho",
+            "ma", "mi", "mu", "me", "mo",
+            "ya", "yu", "yo",
+            "ra", "ri", "ru", "re", "ro",
+            "wa", "wo", "n"
+        ]];
+
+        let hiraPanel = document.getElementById("hiraPanel");
+        let romaPanel = document.getElementById("romaPanel");
+
+        startGame();
+
+        function startGame() {
+            hiraPanel.innerHTML = "<div class='title'>Hiragana</div>";
+            romaPanel.innerHTML = "<div class='title'>Romaji</div>";
+
+            for(let i=0; i < 20; i++){
+
+                // Create the Hiragana panel
+                let hiraChar = document.createElement("div");
+                hiraChar.className = "question";
+                hiraChar.id = "hira" + i;
+                hiraChar.innerHTML = charMap[0][i];
+                hiraPanel.appendChild(hiraChar);
+
+                // Create the Romaji panel
+                let romaChar = document.createElement("button");
+                romaChar.innerHTML = charMap[1][i];
+                romaPanel.appendChild(romaChar);
+
+                romaChar.addEventListener("click", function() {
+                    selectChar(hiraChar, i);
+                });
+
+                // Shuffle Hiragana and Romaji positions
+                shuffleChar();
+            }
+
+        }
+
+        function shuffleChar(){
+            let hiraElements = Array.from(hiraPanel.getElementsByClassName('question'));
+            let hiraShuffled = hiraElements.sort(() => Math.random() - 0.5);
+            hiraPanel.innerHTML = "<div class='title'>Hiragana</div>";
+            hiraShuffled.forEach(element => hiraPanel.appendChild(element));
+
+            let romaElements = Array.from(romaPanel.getElementsByTagName('button'));
+            let romaShuffled = romaElements.sort(() => Math.random() - 0.5);
+            romaPanel.innerHTML = "<div class='title'>Romaji</div>";
+            romaShuffled.forEach(element => romaPanel.appendChild(element));
+        }
+
+        function selectChar(hiraChar, id) {
+            hiraChar.style.visibility = "hidden";
+        }
+
+        function toggleChar(button, index) {
+            if (button.innerHTML === charMap[1][index] + " t") {
+                button.innerHTML = charMap[0][index];
+            } else {
+                button.innerHTML = charMap[1][index] + " t";
+            }
+        }
+        
+    </script>
+</body>
+</html>

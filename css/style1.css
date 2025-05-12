@@ -1,0 +1,138 @@
+
+body {
+    background-color: #000000;
+    font-family: Helvetica, sans-serif;
+}
+
+
+/* =========================================== Menu */
+.container-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FEA501;
+    padding: 2vw 0;
+    gap: 4vw;
+}
+
+.container-menu button {
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 2.4em;
+    color: #000000;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+/* =========================================== Menu */
+.container-main {
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-wrap: wrap;
+    gap: 3vw;
+    margin: 6vw 0;
+}
+
+.container-main .title {
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+.container-main .question {
+    width: 15vw;
+    height: 9vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FEA501;
+    border-radius: 3vw;
+    border: none;
+    font-size: 1.2em;
+    color: #000000;
+    font-weight: bold;
+}
+
+.container-main img {
+    width: 15vw;
+    height: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3vw;
+    border: none;
+}
+
+.container-main button {
+    width: 15vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2cd871;
+    border-radius: 3vw;
+    border: none;
+    font-size: 1.2em;
+    color: #000000;
+    font-weight: bold;
+}
+
+.container-main button:active {
+    background-color: #FCA447;
+}   
+
+
+
+
+
+
+.container-box1 {
+    min-height: 25vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border: 2px solid #222222;
+}
+
+.container-box2 {
+    width: 95vw;
+    min-height: 50vw;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid #222222;
+}
+
+.container-box3 {
+    width: 95vw;
+    min-height: 50vw;
+    display: flex;
+    gap: 2vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: start;
+
+    border: 2px solid #222222;
+}
+
+.box {
+    height: 15vw;
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #15ba57;
+    border-radius: 3vw;
+    font-size: 2em;
+}
