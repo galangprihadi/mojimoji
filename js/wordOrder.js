@@ -138,6 +138,9 @@ function selectChar(hiraChar, keyAnswer) {
 }
 
 function showHint() {
+
+    navigator.vibrate(25);
+
     let hiraChar = document.getElementsByClassName("question");
     //hiraChar[currentQuest].innerHTML = questions[currentQuest][1];
     hiraChar[currentQuest].innerHTML = isHiraGame ? questions[currentQuest][1] : questions[currentQuest][0];
